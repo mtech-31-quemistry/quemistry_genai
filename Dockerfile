@@ -6,6 +6,6 @@ COPY . .
 
 RUN poetry install
 
-EXPOSE 8001
+EXPOSE 80
 
 ENTRYPOINT ["poetry", "run", "python", "-m", "question.server"]
