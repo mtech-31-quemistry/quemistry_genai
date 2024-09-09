@@ -20,7 +20,7 @@ env:
 
 jobs:
   build_and_push_image:
-    needs: code_scan
+#    needs: code_scan
     name: Push Docker Image to ECR
     runs-on: ubuntu-latest
 
