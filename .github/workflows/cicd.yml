@@ -13,7 +13,6 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  ECR_REPOSITORY_URL: ${{ secrets.ECR_REPOSITORY_URL }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   IMAGE_NAME: ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }}
   LATEST_IMAGE_NAME: ${{ secrets.ECR_REPOSITORY_URL }}:latest
@@ -73,13 +72,13 @@ jobs:
           container-name: genai_ms
           image: ${{ env.IMAGE_NAME }}
 
-      - name: Deploy Amazon ECS task definition
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-        with:
-          task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: genai-ms
-          cluster: quemistry-ms
-          wait-for-service-stability: false
+#      - name: Deploy Amazon ECS task definition
+#        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+#        with:
+#          task-definition: ${{ steps.task-def.outputs.task-definition }}
+#          service: genai-ms
+#          cluster: quemistry-ms
+#          wait-for-service-stability: false
 
   zap_scan:
     if: false
