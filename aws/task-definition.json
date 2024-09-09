@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:730335183958:task-definition/quemistry-genai-ms:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:730335183958:task-definition/quemistry-genai-ms:2",
     "containerDefinitions": [
         {
             "name": "genai-ms",
@@ -15,20 +15,19 @@
                 }
             ],
             "essential": true,
-            "environment": [
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
                 {
                     "name": "GOOGLE_API_KEY",
-                    "value": "arn:aws:ssm:ap-southeast-1:730335183958:parameter/cicd/prod/genai/gemini_api_key"
+                    "valueFrom": "arn:aws:ssm:ap-southeast-1:730335183958:parameter/cicd/prod/genai/gemini_api_key"
                 },
                 {
                     "name": "OPENAI_API_KEY",
-                    "value": "arn:aws:ssm:ap-southeast-1:730335183958:parameter/cicd/prod/genai/openai_api_key"
+                    "valueFrom": "arn:aws:ssm:ap-southeast-1:730335183958:parameter/cicd/prod/genai/openai_api_key"
                 }
             ],
-            "environmentFiles": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -38,8 +37,7 @@
                     "max-buffer-size": "25m",
                     "awslogs-region": "ap-southeast-1",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             },
             "systemControls": []
         }
@@ -47,7 +45,7 @@
     "family": "quemistry-genai-ms",
     "executionRoleArn": "arn:aws:iam::730335183958:role/EcsFargateExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -68,6 +66,9 @@
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "ecs.capability.secrets.ssm.environment-variables"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -93,7 +94,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-09-09T13:22:48.642Z",
+    "registeredAt": "2024-09-09T13:53:07.301Z",
     "registeredBy": "arn:aws:iam::730335183958:user/xiaoxin",
     "tags": []
 }
