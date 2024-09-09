@@ -72,13 +72,13 @@ jobs:
           container-name: genai_ms
           image: ${{ env.IMAGE_NAME }}
 
-#      - name: Deploy Amazon ECS task definition
-#        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-#        with:
-#          task-definition: ${{ steps.task-def.outputs.task-definition }}
-#          service: genai-ms
-#          cluster: quemistry-ms
-#          wait-for-service-stability: false
+      - name: Deploy Amazon ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: genai-ms
+          cluster: quemistry-ms
+          wait-for-service-stability: false
 
   zap_scan:
     if: false
