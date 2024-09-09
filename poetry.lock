@@ -239,6 +239,21 @@ all = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>
 standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "jinja2 (>=2.11.2)", "python-multipart (>=0.0.7)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
+name = "fastapi-healthcheck"
+version = "0.2.13"
+description = "Base package to handle health checks with FastAPI."
+optional = false
+python-versions = "<4.0,>=3.9"
+files = [
+    {file = "fastapi_healthcheck-0.2.13-py3-none-any.whl", hash = "sha256:a58760d346a1be7990a6a3f1de9cf8eac07e8cff94b29a0de7d6da944e5bab64"},
+    {file = "fastapi_healthcheck-0.2.13.tar.gz", hash = "sha256:139080f2b4ad5d3400054b12e53afb43e97db34bc1d4676db956db2302f0bdde"},
+]
+
+[package.dependencies]
+fastapi = ">=0,<1"
+pydantic = ">=2.5.2,<3.0.0"
+
+[[package]]
 name = "google-ai-generativelanguage"
 version = "0.6.6"
 description = "Google Ai Generativelanguage API client library"
@@ -2041,4 +2056,4 @@ test = ["pytest (>=6.0.0)", "setuptools (>=65)"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.12,<3.13"
-content-hash = "8f373320e0fe0a2958a61230728615b32a7810f9d15855458fec09d5f07ceaf6"
+content-hash = "19da9cae65445b475d14d5d9d87d4a20f181e73698e2a250aed9ed097a9ab0ef"
