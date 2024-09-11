@@ -7,8 +7,8 @@ from question.chain import gen_by_topic_gemini, gen_by_topic_openai
 _healthChecks = HealthCheckFactory()
 app = FastAPI(title="Quemistry GenAI")
 
-add_routes(app, gen_by_topic_gemini(), path="/genai-ms/geminimcqbytopic")
-add_routes(app, gen_by_topic_openai(), path="/genai-ms/openaimcqbytopic")
+add_routes(app, gen_by_topic_gemini(), path="/genai/geminimcqbytopic")
+add_routes(app, gen_by_topic_openai(), path="/genai/openaimcqbytopic")
 app.add_api_route('/genai-ms/health', healthCheckRoute(factory=_healthChecks))
 
 if __name__ == "__main__":
